@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../environments/environment'
 import { User } from './user';
 import { from } from 'rxjs';
 
@@ -11,7 +12,7 @@ export class ServiceOneService {
 users:User[]=[];
  constructor(public http:HttpClient) { }
  searchUsers(searchTerm:string){
-   let searchEndPoint = "https://api.github.com/users/"+searchTerm+"?access_token=ec0138b704da9fc2c4cf42095b7975ff59d1a525";
+   let searchEndPoint = "https://api.github.com/users/"+searchTerm+"?access_token="+environment.apiUrl;
    let promise = new Promise((resolve,reject)=>{
      this.http.get(searchEndPoint).toPromise().then(
        (results)=>{
