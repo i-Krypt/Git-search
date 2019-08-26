@@ -1,17 +1,67 @@
 <!-- navbar -->
 <div class="pos-f-t">
-    <div class="collapse" id="navbarToggleExternalContent">
-        <div class="bg-dark p-4">
-            <h5 class="text-white h4">Git Search</h5>
-            <span class="text-muted">Enter a github username and find the user and get to view repositories.</span>
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-dark p-4">
+                <h5 class="text-white h4">Git Search</h5>
+                <span class="text-muted">Enter a github username and find the user and get to view repositories.</span>
+            </div>
+        </div>
+        <nav class="navbar navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
+                aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
+    </div>
+    
+    <br> <br>
+
+   <!-- sub menu -->
+<div class="ui grid">
+        <div class="four wide column">
+            <div class="ui vertical menu">
+                <div class="item">
+                    <div class="ui icon input">
+                        <input type="text" placeholder="Search user..." name="searchTerm" [(ngModel)]="searchTerm">
+                        <i class="search icon"></i>
+                    </div>
+                    <div class="results"></div>
+                </div>
+                <div class="item">
+                    <button type="submit" class="btn btn-dark" (click)="search()"><i
+                            class="fas fa-search"></i>&nbsp;Search</button>
+                </div>
+                <a class="item">
+                    <i class="grid layout icon"></i> Browse Repos
+                </a>
+                <a class="item">
+                    Messages
+                </a>
+            </div>
+        </div>
+    
+        <!-- grid -->
+        <div class="twelve wide stretched column">
+            <div class="ui segment">
+                    <div *ngIf="users">
+                            <div class="card-columns">
+                                <div *ngFor="let user of users">
+                                    <div class="card image-card">
+                                        <img src="{{user.avatar_url}}" class="card-img">
+                                    </div>
+                                </div>
+
+                                <div *ngFor="let user of users">
+                                        <p class="userlogin">{{user.login}}</p>
+                                        <button class="btn btn-dark">{{user.followers}} followers</button><br>
+                                        <button class="btn btn-dark">{{user.following}} following</button>
+                                        <h4>Repositories <span class="span">{{user.public_repos}}</span></h4><hr>
+                                    </div>
+                            </div>
         </div>
     </div>
-    <nav class="navbar navbar-dark bg-dark">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
-            aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </nav>
-</div>
-<br> <br>
-<app-gitForm (emitSearch)="searchThis($event)"></app-gitForm>
+
+    <div *ngIf="users">
+        
+
+    </div>
