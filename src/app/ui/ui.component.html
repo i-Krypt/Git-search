@@ -66,34 +66,39 @@
                     </div>
                 </div>
            </div>
+           <br>
+           <a class="ui blue tag label">Repositories.</a>
+           <hr>
+
+           <div *ngIf="users" class="float">
+                <div class="ui cards">
+                        <div class="card" *ngFor="let repo of reposy">
+                          <div class="content">
+                            <div class="header">{{repo.name}}</div>
+                            <div class="description">
+                                    Created on:{{repo.created_at}}
+                            </div>
+                            <div class="ui labeled button" tabindex="0">
+                                    <div class="ui basic blue button">
+                                      <i class="fork icon"></i> Forks
+                                    </div>
+                                    <a class="ui basic left pointing blue label">
+                                            {{repo.forks_count}}
+                                    </a>
+                                  </div>
+                          </div>
+                          <a href="{{repo.html_url}}" target="_blank">
+                                <div class="ui bottom attached button">
+                                        <i class="eye icon"></i>
+                                    View Repo.
+                                  </div>
+                          </a>
+        </div>
+    
    </div>
  
 
-    <div *ngIf="users">
-            <div class="ui cards">
-                    <div class="card" *ngFor="let repo of reposy">
-                      <div class="content">
-                        <div class="header">{{repo.name}}</div>
-                        <div class="description">
-                                Created on:{{repo.created_at}}
-                        </div>
-                        <div class="ui labeled button" tabindex="0">
-                                <div class="ui basic blue button">
-                                  <i class="fork icon"></i> Forks
-                                </div>
-                                <a class="ui basic left pointing blue label">
-                                        {{repo.forks_count}}
-                                </a>
-                              </div>
-                      </div>
-                      <a href="{{repo.html_url}}" target="_blank">
-                            <div class="ui bottom attached button">
-                                    <i class="eye icon"></i>
-                                View Repo.
-                              </div>
-                      </a>
-    </div>
-
+ 
 
     <!-- custom card -->
 
