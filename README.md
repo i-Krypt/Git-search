@@ -5,10 +5,10 @@ This is a website which allows users to enter a GitHub username into a form, sub
 Sam Nujoma.
 
 ## Setup/Installation Requirements
-* You can view the page at https://audreynjiraini.github.io/git-search/
+* You can view the page at https://i-krypt.github.io/Git-search/
 
 ## Contact Information
-If you need clarification on any aspect, feel free to reach me on my email at vamay505@gmail.com
+Feel free to reach me on my email at vamay505@gmail.com.
 
 ### License
 MIT License
