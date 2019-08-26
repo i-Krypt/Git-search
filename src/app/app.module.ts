@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UiComponent } from './ui/ui.component';
+import { GitFormComponent } from './git-form/git-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UiComponent
+    UiComponent,
+    GitFormComponent
   ],
   imports: [
     BrowserModule,
