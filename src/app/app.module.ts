@@ -8,12 +8,16 @@ import { AppComponent } from './app.component';
 import { UiComponent } from './ui/ui.component';
 import { GitFormComponent } from './git-form/git-form.component';
 import { from } from 'rxjs';
+import { DatePipe } from './date.pipe';
+import { HighlightDirective } from './highlight.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     UiComponent,
-    GitFormComponent
+    GitFormComponent,
+    DatePipe,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
