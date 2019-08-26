@@ -1,1 +1,29 @@
-<p></p>
+ <!-- sub menu -->
+ <div class="ui grid">
+        <div class="four wide column">
+            <div class="ui vertical menu">
+                <div class="item">
+                    <div class="ui icon input">
+                        <input type="text" placeholder="Search user..." name="searchTerm" [(ngModel)]="searchTerm">
+                        <i class="search icon"></i>
+                    </div>
+                    <div class="results"></div>
+                </div>
+                <div class="item">
+                    <button type="submit" class="ui inverted primary button" (click)="search()">
+                        &nbsp;Search</button>
+                </div>
+                <a class="item">
+                    <i class="grid layout icon"></i> Browse Repos
+                </a>
+                <a class="item">
+                    Messages
+                </a>
+            </div>
+        </div>
+    
+        <!-- grid -->
+       
+    </div>
+    
+    

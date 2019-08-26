@@ -13,55 +13,118 @@
             </button>
         </nav>
     </div>
-    
     <br> <br>
-
-   <!-- sub menu -->
-<div class="ui grid">
-        <div class="four wide column">
-            <div class="ui vertical menu">
-                <div class="item">
-                    <div class="ui icon input">
-                        <input type="text" placeholder="Search user..." name="searchTerm" [(ngModel)]="searchTerm">
-                        <i class="search icon"></i>
+   
+   <div class="container">
+        <div class="row">
+                <div class="col-md-3">
+                        <app-git-form (emitSearch)="searchThis($event)"></app-git-form>
+                </div>
+                <div class="col-md-8">
+                        <div class="ui segment">
+                                <div *ngIf="users">
+                                        <div class="card-columns">
+                                            <div *ngFor="let user of users">
+                                                <div class="card image-card">
+                                                    <img src="{{user.avatar_url}}" class="card-img">
+                                                </div>
+                                            </div>
+                        
+                                            <div *ngFor="let user of users">
+                                                    <p class="userlogin">{{user.login}}</p>
+                                                    <div class="ui labeled button" tabindex="0">
+                                                            <div class="ui basic blue button">
+                                                                <i class="users icon"></i> Followers
+                                                            </div>
+                                                            <a class="ui basic left pointing blue label">
+                                                                    {{user.followers}}
+                                                            </a>
+                                                          </div>
+                                                    <br> <br>
+                                                    <div class="ui labeled button" tabindex="0">
+                                                            <div class="ui basic blue button">
+                                                                <i class="users icon"></i> Following
+                                                            </div>
+                                                            <a class="ui basic left pointing blue label">
+                                                                    {{user.following}} 
+                                                            </a>
+                                                          </div>
+                                                          <br> <br>
+                                                          <div class="ui labeled button" tabindex="0">
+                                                                <div class="ui red button">
+                                                                <i class="folder icon"></i> Repos'
+                                                                </div>
+                                                                <a class="ui basic black left pointing label">
+                                                                        {{user.public_repos}}
+                                                                </a>
+                                                              </div>
+                                                    
+                                                   
+                                                </div>
+                                        </div>
+                        </div>
                     </div>
-                    <div class="results"></div>
                 </div>
-                <div class="item">
-                    <button type="submit" class="btn btn-dark" (click)="search()"><i
-                            class="fas fa-search"></i>&nbsp;Search</button>
-                </div>
-                <a class="item">
-                    <i class="grid layout icon"></i> Browse Repos
-                </a>
-                <a class="item">
-                    Messages
-                </a>
-            </div>
-        </div>
-    
-        <!-- grid -->
-        <div class="twelve wide stretched column">
-            <div class="ui segment">
-                    <div *ngIf="users">
-                            <div class="card-columns">
-                                <div *ngFor="let user of users">
-                                    <div class="card image-card">
-                                        <img src="{{user.avatar_url}}" class="card-img">
-                                    </div>
-                                </div>
-
-                                <div *ngFor="let user of users">
-                                        <p class="userlogin">{{user.login}}</p>
-                                        <button class="btn btn-dark">{{user.followers}} followers</button><br>
-                                        <button class="btn btn-dark">{{user.following}} following</button>
-                                        <h4>Repositories <span class="span">{{user.public_repos}}</span></h4><hr>
-                                    </div>
-                            </div>
-        </div>
-    </div>
+           </div>
+   </div>
+ 
 
     <div *ngIf="users">
-        
-
+            <div class="ui cards">
+                    <div class="card" *ngFor="let repo of reposy">
+                      <div class="content">
+                        <div class="header">{{repo.name}}</div>
+                        <div class="description">
+                                Created on:{{repo.created_at}}
+                        </div>
+                        <div class="ui labeled button" tabindex="0">
+                                <div class="ui basic blue button">
+                                  <i class="fork icon"></i> Forks
+                                </div>
+                                <a class="ui basic left pointing blue label">
+                                        {{repo.forks_count}}
+                                </a>
+                              </div>
+                      </div>
+                      <a href="{{repo.html_url}}" target="_blank">
+                            <div class="ui bottom attached button">
+                                    <i class="eye icon"></i>
+                                View Repo.
+                              </div>
+                      </a>
     </div>
+
+
+    <!-- custom card -->
+
+             
+
+
+
+
+              <!-- origin -->
+              <!-- <div class="cards">
+                    <div class="cards_styling">
+                        <div class="card" *ngFor="let repo of reposy" style="width: 21rem;">
+                            <div class="card-header">
+                                Repo name:{{repo.name}}
+                            </div>
+                            <div class="card-body">
+                                <p>Description</p>
+                                <p>Created at:{{repo.created_at}}</p>
+                                <div class="ui labeled button" tabindex="0">
+                                        <div class="ui basic blue button">
+                                          <i class="fork icon"></i> Forks
+                                        </div>
+                                        <a class="ui basic left pointing blue label">
+                                          1,048
+                                        </a>
+                                      </div>
+                                <button class="btn btn-dark"><i class="fas fa-code-branch"></i>&nbsp;Forks&nbsp;{{repo.forks_count}}</button>
+                            </div>
+                            <div class="card-footer">
+                                    <a href="{{repo.html_url}}" target="_blank"><button class="btn btn-dark" title="View repository">View</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
